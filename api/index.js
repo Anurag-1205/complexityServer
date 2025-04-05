@@ -11,6 +11,9 @@ const apiKey = process.env.GOOGLE_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
+app.get("/", (req, res) => {
+    res.send("Backend is running! 🚀");
+});
 app.post('/analyze', async (req, res) => {
   const { code } = req.body;
 
