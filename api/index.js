@@ -7,9 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
-
-const apiKey = process.env.GOOGLE_API_KEY || "AIzaSyBywW_rkH-s760T10YXBUrkrGKfssnz1lk";
+const apiKey = process.env.GOOGLE_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
@@ -54,6 +52,4 @@ Please provide a concise analysis in JSON format with the following keys:
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+module.exports = app;
