@@ -11,7 +11,6 @@ const corsOptions = {
   allowedHeaders: ['Content-Type'],
 };
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
 app.use(express.json());
 
 const apiKey = process.env.GOOGLE_API_KEY;
