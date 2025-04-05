@@ -4,7 +4,13 @@ require('dotenv').config();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const app = express();
-app.use(cors());
+
+const corsOptions = {
+  origin: 'https://codecomplexity.vercel.app',  // your frontend domain
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+};
+app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 app.use(express.json());
 
